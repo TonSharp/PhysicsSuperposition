@@ -36,12 +36,10 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Resources\Prefabs\SetupPanel.cs" />
      <Compile Include="Assets\Scripts\UI\Outliner.cs" />
      <Compile Include="Assets\Scripts\UI\Dot.cs" />
-     <Compile Include="Assets\Scripts\UI\DotMover.cs" />
      <Compile Include="Assets\Scripts\DotHolder.cs" />
-     <Compile Include="Assets\Scripts\UI\BGController.cs" />
-     <Compile Include="Assets\Resources\Prefabs\SetupPanel.cs" />
      <None Include="Assets\Resources\Sprite-Outline.shader" />
     <Reference Include="UnityEngine">
         <HintPath>D:/Program files/Unity Editor/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
