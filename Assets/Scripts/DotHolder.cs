@@ -31,16 +31,11 @@ public class DotHolder : MonoBehaviour
             if(dot != mainDot.gameObject)
             {
                 Vector3 offsetPos = dot.transform.position - mainDot.transform.position;
+                
                 float strength = ((9*Mathf.Pow(10, 9) * 1)/(Mathf.Pow(offsetPos.x, 2) + Mathf.Pow(offsetPos.y, 2))) * power;
-
                 float maxOffset = Mathf.Max(Mathf.Abs(offsetPos[0]), Mathf.Abs(offsetPos[1]));
 
-                offsetPos.x /= maxOffset;
-                offsetPos.y /= maxOffset;
-
-                Debug.Log(offsetPos.ToString() + " " + dot.transform.position.ToString() + " " + maxOffset);
-
-                Vector3 lineDir = (dot.transform.position + offsetPos)*strength;
+                Vector3 lineDir = (dot.transform.position + offsetPos.normalized*strength);//*strength;
 
                 dot.GetComponent<LineRenderer>().SetPosition(1, lineDir);
             }
