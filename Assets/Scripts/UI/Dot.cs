@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Dot : MonoBehaviour
 {
@@ -9,13 +10,28 @@ public class Dot : MonoBehaviour
 
     [SerializeField]
     private float dS;
+
     [SerializeField]
+
     float width, height;
     [SerializeField]
     private DotHolder holder;
+
     private Vector3 DiffPos;
     private GameObject Panel;
     private GameObject panelTemp;
+
+    private float tension
+    {
+        get {
+            Dot mainDot = holder.GetMainDot();
+
+            Vector3 offsetPos = gameObject.transform.position - mainDot.transform.position;
+            float strength = ((9*Mathf.Pow(10, 9) * 1)/(Mathf.Pow(offsetPos.x, 2) + Mathf.Pow(offsetPos.y, 2))) * holder.power;
+            
+            return strength;
+        }
+    }
 
     private void Awake()
     {
@@ -33,9 +49,18 @@ public class Dot : MonoBehaviour
         gameObject.GetComponent<Outliner>().enabled = true;
     }
 
+    private void OnMouseOver()
+    {
+        if(!isMain)
+            GameObject.Find("Tension num").GetComponent<Text>().text = tension + " В/м";
+    }
+
     private void OnMouseExit() 
     {
         gameObject.GetComponent<Outliner>().enabled = false;
+
+        if(!isMain)
+            GameObject.Find("Tension num").GetComponent<Text>().text = "0 В/м";
     }
 
     private void OnMouseDown()

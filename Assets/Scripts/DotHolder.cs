@@ -5,13 +5,13 @@ using UnityEngine;
 public class DotHolder : MonoBehaviour
 {
     public List<GameObject> Dots;
-    [SerializeField] float power;
+    public float power;
 
     private void Update()
     {
         CalculateFieldStrength();
     }
-    private Dot GetMainDot()
+    public Dot GetMainDot()
     {
         foreach(var d in Dots)
         {
@@ -37,7 +37,7 @@ public class DotHolder : MonoBehaviour
 
                 Vector3 lineDir = (dot.transform.position + offsetPos.normalized*strength);//*strength;
 
-                dot.GetComponent<LineRenderer>().SetPosition(1, lineDir);
+                dot.GetComponent<LineRenderer>().SetPosition(1, new Vector3(lineDir.x, lineDir.y, 0));
             }
         }
     }
