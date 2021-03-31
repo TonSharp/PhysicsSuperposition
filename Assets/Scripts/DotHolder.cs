@@ -4,41 +4,31 @@ using UnityEngine;
 
 public class DotHolder : MonoBehaviour
 {
-    public List<GameObject> Dots;
+    public List<Dot> Dots;
     public float power;
 
     private void Update()
     {
         CalculateFieldStrength();
     }
-    public Dot GetMainDot()
+    public List<Dot> GetMainDots()
     {
+        List<Dot> dots = new List<Dot>();
+
         foreach(var d in Dots)
         {
-            if(d.GetComponent<Dot>().isMain)
-            return d.GetComponent<Dot>();
+            if(d.isMain)
+                dots.Add(d);
         }
 
-        return null;
+        return dots;
     }
     public void CalculateFieldStrength()
     {
-        Dot mainDot = GetMainDot();
-        if(mainDot == null ) return;
-
         foreach(var dot in Dots)
         {
-            if(dot != mainDot.gameObject)
-            {
-                Vector3 offsetPos = dot.transform.position - mainDot.transform.position;
-                
-                float strength = ((9*Mathf.Pow(10, 9) * 1)/(Mathf.Pow(offsetPos.x, 2) + Mathf.Pow(offsetPos.y, 2))) * power;
-                float maxOffset = Mathf.Max(Mathf.Abs(offsetPos[0]), Mathf.Abs(offsetPos[1]));
-
-                Vector3 lineDir = (dot.transform.position + offsetPos.normalized*strength);//*strength;
-
-                dot.GetComponent<LineRenderer>().SetPosition(1, new Vector3(lineDir.x, lineDir.y, 0));
-            }
+            if(dot.isMain) continue;
+            dot.GetComponent<LineRenderer>().SetPosition(1, TensionHelper.CalculateTensionVector(dot, Dots, power, out _));
         }
     }
     public void ChangeActiveStates(GameObject Sender)

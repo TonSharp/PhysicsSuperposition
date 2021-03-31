@@ -24,12 +24,9 @@ public class Dot : MonoBehaviour
     private float tension
     {
         get {
-            Dot mainDot = holder.GetMainDot();
-
-            Vector3 offsetPos = gameObject.transform.position - mainDot.transform.position;
-            float strength = ((9*Mathf.Pow(10, 9) * 1)/(Mathf.Pow(offsetPos.x, 2) + Mathf.Pow(offsetPos.y, 2))) * holder.power;
-            
-            return strength;
+            float val;
+            TensionHelper.CalculateTensionVector(this, holder.Dots, holder.power, out val);
+            return val;
         }
     }
 
