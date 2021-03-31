@@ -16,7 +16,8 @@ public static class TensionHelper
             Vector3 Offset = (Target.transform.position - dot.transform.position);
             float strength = ((9*Mathf.Pow(10, 9) * 1)/(Mathf.Pow(Offset.x, 2) + Mathf.Pow(Offset.y, 2))) * Power;
 
-            Vector2 Dir = (Target.transform.position + Offset.normalized*strength);
+            Vector2 Dir = !dot.isProton ? Target.transform.position + Offset.normalized*strength : Target.transform.position - Offset.normalized*strength;
+
             res += Dir;
         }
 

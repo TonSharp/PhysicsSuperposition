@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Dot : MonoBehaviour
 {
     public bool isMain = false;
+    public bool isProton = false;
     private bool isActive = false;
 
     [SerializeField]
