@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//TODO
+//1. Add UI features
+//2. Add extended drawings
+//3. Add shapes support
+
 public class Dot : MonoBehaviour
 {
     public bool isMain = false;
