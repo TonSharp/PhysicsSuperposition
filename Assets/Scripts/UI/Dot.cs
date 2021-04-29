@@ -12,6 +12,7 @@ public class Dot : MonoBehaviour
 {
     public bool isMain = false;
     public bool isProton = false;
+    public bool isGrid = false;
     private bool isActive = false;
 
     [SerializeField]
@@ -20,21 +21,12 @@ public class Dot : MonoBehaviour
     [SerializeField]
 
     float width, height;
-    [SerializeField]
-    private DotHolder holder;
+    //public DotHolder holder;
+    public GlobalGrid grid;
 
     private Vector3 DiffPos;
     private GameObject Panel;
     private GameObject panelTemp;
-
-    private float tension
-    {
-        get {
-            float val;
-            TensionHelper.CalculateTensionVector(this, holder.Dots, holder.power, out val);
-            return val;
-        }
-    }
 
     private void Awake()
     {
@@ -54,8 +46,8 @@ public class Dot : MonoBehaviour
 
     private void OnMouseOver()
     {
-        if(!isMain)
-            GameObject.Find("Tension num").GetComponent<Text>().text = tension + " В/м";
+        //if(!isMain)
+            //GameObject.Find("Tension num").GetComponent<Text>().text = tension + " В/м";
     }
 
     private void OnMouseExit() 
@@ -72,7 +64,7 @@ public class Dot : MonoBehaviour
         {
             isActive = true;
             panelTemp = Instantiate(Panel, new Vector2(transform.position.x + width, transform.position.y + height), new Quaternion(), GameObject.Find("Canvas").transform);
-            holder.ChangeActiveStates(gameObject);
+            //holder.ChangeActiveStates(gameObject);
 
             panelTemp.GetComponentInChildren<SetupPanel>().parent = gameObject;
         }

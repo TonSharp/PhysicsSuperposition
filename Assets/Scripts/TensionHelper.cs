@@ -4,27 +4,41 @@ using UnityEngine;
 
 public static class TensionHelper
 {
-    public static Vector2 CalculateTensionVector(Dot Target, List<Dot> Dots, float Power, out float Strength)
+    public static float MaxLength = 2.5f;
+    public static Vector2 CalculateTensionVector(Dot Target, List<Dot> Dots, out float Strength)
     {
         Vector2 res = new Vector2();
+        
+            Vector3 Dir = new Vector3();
 
         foreach(var dot in Dots)
         {
             if(dot == Target) continue;
-            else if(!dot.isMain) continue;
+            else if(!dot.isMain) 
+                continue;
 
             Vector3 Offset = (Target.transform.position - dot.transform.position);
-            float strength = ((9*Mathf.Pow(10, 9) * 1)/(Mathf.Pow(Offset.x, 2) + Mathf.Pow(Offset.y, 2))) * Power;
+            float strength = ((9*Mathf.Pow(10, 9) * 1)/(Mathf.Pow(Offset.x, 2) + Mathf.Pow(Offset.y, 2))) * SettingsHandler.Power;
 
-            Vector2 Dir = !dot.isProton ? Target.transform.position + Offset.normalized*strength : Target.transform.position - Offset.normalized*strength;
+            if(!dot.isProton)
+                Dir += Offset.normalized * strength;
 
-            res += Dir;
+            else
+                Dir -= Offset.normalized * strength;
         }
 
-        Strength = res.magnitude;
+        Strength = Dir.magnitude; //Change
+
+        if(!SettingsHandler.IsSameLength){
+            float length = Dir.magnitude;
+            if(length > MaxLength)
+            Dir = Dir.normalized * MaxLength;
+        }
+        else Dir.Normalize();
+        res = new Vector2(Dir.x, Dir.y);
+        res += new Vector2(Target.transform.position.x, Target.transform.position.y);
 
         return res;
     }
-
 
 }

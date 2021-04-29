@@ -36,11 +36,20 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\SettingsHandler.cs" />
      <Compile Include="Assets\Resources\Prefabs\SetupPanel.cs" />
      <Compile Include="Assets\Scripts\UI\Outliner.cs" />
      <Compile Include="Assets\Scripts\UI\Dot.cs" />
-     <Compile Include="Assets\Scripts\DotHolder.cs" />
      <Compile Include="Assets\Scripts\TensionHelper.cs" />
+     <Compile Include="Assets\Scripts\UI\DotGrid.cs" />
+     <Compile Include="Assets\Scripts\DotHolder.cs" />
+     <Compile Include="Assets\Scripts\Drawers\LineDrawer.cs" />
+     <Compile Include="Assets\Scripts\Drawers\Drawer.cs" />
+     <Compile Include="Assets\Scripts\Grid\GlobalGrid.cs" />
+     <Compile Include="Assets\Scripts\UI\Horizont.cs" />
+     <Compile Include="Assets\Scripts\Grid\Spawner.cs" />
+     <Compile Include="Assets\Scripts\Grid\GridSpawner.cs" />
+     <Compile Include="Assets\Scripts\Drawers\ColorDrawer.cs" />
      <None Include="Assets\Resources\Sprite-Outline.shader" />
     <Reference Include="UnityEngine">
         <HintPath>D:/Program files/Unity Editor/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>

@@ -6,10 +6,9 @@ public class DotHolder : MonoBehaviour
 {
     public List<Dot> Dots;
     public float power;
-
     private void Update()
     {
-        CalculateFieldStrength();
+        //CalculateFieldStrength();
     }
     public List<Dot> GetMainDots()
     {
@@ -28,7 +27,7 @@ public class DotHolder : MonoBehaviour
         foreach(var dot in Dots)
         {
             if(dot.isMain) continue;
-            dot.GetComponent<LineRenderer>().SetPosition(1, TensionHelper.CalculateTensionVector(dot, Dots, power, out _));
+            dot.GetComponent<LineRenderer>().SetPosition(1, TensionHelper.CalculateTensionVector(dot, Dots, out _));
         }
     }
     public void ChangeActiveStates(GameObject Sender)
