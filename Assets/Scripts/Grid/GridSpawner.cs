@@ -22,11 +22,8 @@ public class GridSpawner : MonoBehaviour, Spawner {
             for(var x = 0; x < grid.XCount; x++)
             {
                 GameObject temp = Instantiate(dot, GameObject.Find("DotHolder").transform);
-                dot.GetComponent<SpriteRenderer>().enabled = false;
-                dot.GetComponent<CircleCollider2D>().enabled = false;
                 dot.transform.position = new Vector3(BottomLeft.x + ((x * offsetX) + offsetX), BottomLeft.y + ((y * offsetY) + offsetY), 0);
                 dot.GetComponent<Dot>().grid = grid;
-                dot.GetComponent<Dot>().isGrid = true;
                 dot.GetComponent<LineRenderer>().startWidth = 0.1f;
                 grid.Dots.Add(temp.GetComponent<Dot>());
             }

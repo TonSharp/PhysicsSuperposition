@@ -30,12 +30,4 @@ public class DotHolder : MonoBehaviour
             dot.GetComponent<LineRenderer>().SetPosition(1, TensionHelper.CalculateTensionVector(dot, Dots, out _));
         }
     }
-    public void ChangeActiveStates(GameObject Sender)
-    {
-        for(int i = 0; i < Dots.Count; i++)
-        {
-            if(Dots[i] == Sender) continue;
-            else Dots[i].GetComponent<Dot>().DisableActive();
-        }
-    }
 }

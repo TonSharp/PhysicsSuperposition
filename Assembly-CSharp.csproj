@@ -51,6 +51,10 @@
      <Compile Include="Assets\Scripts\DotHolder.cs" />
      <Compile Include="Assets\Scripts\Grid\GridSpawner.cs" />
      <Compile Include="Assets\Scripts\UI\LeftMenuController.cs" />
+     <Compile Include="Assets\Scripts\UI\Proton.cs" />
+     <Compile Include="Assets\Scripts\UI\Electron.cs" />
+     <Compile Include="Assets\Scripts\UI\GridDot.cs" />
+     <Compile Include="Assets\Resources\Prefabs\SpawnButtonClick.cs" />
      <None Include="Assets\Resources\Sprite-Outline.shader" />
     <Reference Include="UnityEngine">
         <HintPath>D:/Program files/Unity Editor/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>

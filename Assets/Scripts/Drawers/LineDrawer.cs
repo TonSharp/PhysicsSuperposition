@@ -9,6 +9,9 @@ public class LineDrawer : Drawer
         if(SettingsHandler.IsPrivateLines){
 
             foreach(var a in Grid.Dots){
+                
+                if(a.isMain) continue;
+
                 Vector2 Dest = TensionHelper.CalculateTensionVector(a, Grid.Dots, out float val);
                 a.GetComponent<LineRenderer>().SetPosition(1, Dest);
 
