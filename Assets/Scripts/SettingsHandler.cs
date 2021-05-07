@@ -4,27 +4,18 @@ using UnityEngine;
 
 public class SettingsHandler : MonoBehaviour
 {
-    public static bool IsColored = false;
-    public static bool IsHorizontalLines = false;
-    public static bool IsPrivateLines = true;
-    public static bool IsSameLength = false;
-    public static bool IsGrid = true;
-    public static float Power = 0.0000000001f;
+    public bool IsColored = false;
+    public bool IsHorizontalLines = false;
+    public bool IsPrivateLines = true;
+    public bool IsSameLength = false;
+    public bool IsGrid = true;
+    public float Power = 0.0000000001f;
+    public float MaxLength = 1f;
 
-    public bool _IsColored = false;
-    public bool _IsHorizontalLines = false;
-    public bool _IsPrivateLines = true;
-    public bool _IsSameLength = false;
-    public bool _IsGrid = true;
-    public float _Power;
-
+    public float MaxColorVal = 500f;
+    public float GreenBorder = 100f;
+    public float BlueBorder = 50f;
     private void Awake()
     {
-        Power = _Power;  
-        IsColored = _IsColored;
-        IsHorizontalLines = _IsHorizontalLines;
-        IsPrivateLines = _IsPrivateLines;
-        IsSameLength = _IsSameLength;
-        IsGrid = _IsGrid;
     }
 }

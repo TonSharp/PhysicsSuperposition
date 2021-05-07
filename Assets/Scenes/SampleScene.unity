@@ -1091,12 +1091,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92dc4088a934731419b4d6853ba19d52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _IsColored: 1
-  _IsHorizontalLines: 0
-  _IsPrivateLines: 1
-  _IsSameLength: 1
-  _IsGrid: 1
-  _Power: 0.000000001
+  IsColored: 1
+  IsHorizontalLines: 0
+  IsPrivateLines: 1
+  IsSameLength: 1
+  IsGrid: 1
+  Power: 1e-10
+  MaxLength: 0.3
+  MaxColorVal: 1
+  GreenBorder: 0.18
+  BlueBorder: 0.08
 --- !u!1 &1203694745
 GameObject:
   m_ObjectHideFlags: 0
@@ -1130,7 +1134,7 @@ MonoBehaviour:
   Horizons: []
   XCount: 40
   YCount: 40
-  MaxPredicate: 3
+  MaxPredicate: 10
   MaxLength: 0
   DotOffset: 0
 --- !u!4 &1203694747

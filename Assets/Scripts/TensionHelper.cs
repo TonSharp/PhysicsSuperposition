@@ -4,6 +4,7 @@ using UnityEngine;
 
 public static class TensionHelper
 {
+    private static SettingsHandler settingsHandler = GameObject.Find("SettingsHandler").GetComponent<SettingsHandler>();
     public static float MaxLength = 2.5f;
     public static Vector2 CalculateTensionVector(Dot Target, List<Dot> Dots, out float Strength)
     {
@@ -18,7 +19,7 @@ public static class TensionHelper
                 continue;
 
             Vector3 Offset = (Target.transform.position - dot.transform.position);
-            float strength = ((9*Mathf.Pow(10, 9) * 1)/(Mathf.Pow(Offset.x, 2) + Mathf.Pow(Offset.y, 2))) * SettingsHandler.Power;
+            float strength = ((9*Mathf.Pow(10, 9) * 1)/(Mathf.Pow(Offset.x, 2) + Mathf.Pow(Offset.y, 2))) * settingsHandler.Power;
 
             if(!dot.isProton)
                 Dir += Offset.normalized * strength;
@@ -29,12 +30,13 @@ public static class TensionHelper
 
         Strength = Dir.magnitude; //Change
 
-        if(!SettingsHandler.IsSameLength){
+        if(!settingsHandler.IsSameLength){
             float length = Dir.magnitude;
             if(length > MaxLength)
-            Dir = Dir.normalized * MaxLength;
+            Dir = Dir.normalized * settingsHandler.MaxLength;
         }
-        else Dir.Normalize();
+        else 
+            Dir = Dir.normalized * settingsHandler.MaxLength;
         res = new Vector2(Dir.x, Dir.y);
         res += new Vector2(Target.transform.position.x, Target.transform.position.y);
 
