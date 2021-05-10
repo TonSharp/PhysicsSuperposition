@@ -1098,7 +1098,7 @@ MonoBehaviour:
   IsGrid: 1
   Power: 1e-10
   MaxLength: 0.3
-  MaxColorVal: 1
+  MaxColorVal: 2
   GreenBorder: 0.18
   BlueBorder: 0.08
 --- !u!1 &1203694745

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SettingsHandler : MonoBehaviour
 {
-    public bool IsColored = false;
+    public bool IsColored = true;
     public bool IsHorizontalLines = false;
     public bool IsPrivateLines = true;
     public bool IsSameLength = false;

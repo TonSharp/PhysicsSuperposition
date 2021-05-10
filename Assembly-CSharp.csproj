@@ -66,6 +66,9 @@
      <Compile Include="Assets\Scripts\UI\DotGrid.cs" />
      <Compile Include="Assets\Scripts\DotHolder.cs" />
      <Compile Include="Assets\Scripts\Grid\GridSpawner.cs" />
+     <Compile Include="Assets\Scripts\UI\GridMenuHandler.cs" />
+     <Compile Include="Assets\Scripts\UI\ColorMenuHandler.cs" />
+     <Compile Include="Assets\Scripts\UI\ArrowMenuHandler.cs" />
      <None Include="Assets\Resources\Sprite-Outline.shader" />
  <Reference Include="UnityEngine">
  <HintPath>D:/Program files/Unity Editor/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>

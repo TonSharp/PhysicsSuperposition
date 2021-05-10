@@ -13,6 +13,10 @@ public class GlobalGrid : MonoBehaviour {
     public float MaxLength;
     public int DotOffset;
 
+    public void UpdateGrid()
+    {
+        spawner.Respawn(this);
+    } 
     private void Awake()
     {
         DotOffset = Dots.Count;

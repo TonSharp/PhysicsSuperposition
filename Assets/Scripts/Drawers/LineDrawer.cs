@@ -52,6 +52,12 @@ public class LineDrawer : Drawer
 
                     }
                 }
+                else
+                {
+                    val /= settingsHandler.MaxColorVal;
+                    a.GetComponent<LineRenderer>().startColor = new Color(val, val, val);
+                    a.GetComponent<LineRenderer>().endColor = new Color(val, val, val);
+                }
             }
         }
         else if(!settingsHandler.IsPrivateLines){

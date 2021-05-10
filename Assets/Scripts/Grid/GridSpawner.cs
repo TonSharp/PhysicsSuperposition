@@ -15,7 +15,6 @@ public class GridSpawner : MonoBehaviour, Spawner {
         float offsetY = height/(grid.YCount + 1);
 
         GameObject dot = Resources.Load<GameObject>("Prefabs/Dot");
-        GameObject hor = Resources.Load<GameObject>("Prefabs/Horizon");
 
         for(var y = 0; y < grid.YCount; y++)
         {
@@ -26,11 +25,19 @@ public class GridSpawner : MonoBehaviour, Spawner {
                 dot.GetComponent<Dot>().grid = grid;
                 grid.Dots.Add(temp.GetComponent<Dot>());
             }
-
-            GameObject tempHor = Instantiate(hor, GameObject.Find("HorHolder").transform);
-            tempHor.transform.position = new Vector3(BottomLeft.x + offsetX, BottomLeft.y + ((y * offsetY) + offsetY), 0);
-            tempHor.GetComponent<LineRenderer>().positionCount = grid.XCount;
-            grid.Horizons.Add(tempHor.GetComponent<LineRenderer>());
         }
+    }
+    public void Respawn(GlobalGrid grid)
+    {
+        GameObject DotParrent = GameObject.Find("DotHolder");
+        int childCount = DotParrent.transform.childCount;
+
+        for(int i = 0; i < childCount; i++){
+            GameObject child = DotParrent.transform.GetChild(i).gameObject;
+            grid.Dots.Remove(child.GetComponent<Dot>());
+            Destroy(child);
+        }
+
+        Spawn(grid);
     }
 }
